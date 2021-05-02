@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+        }
+        .container{
+            display:flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #form_main{
+            display: flex;
+            flex-direction: column;
+            min-width:30vw;
+            background-color: aqua;
+        }
+    
+        #form_main h2{
+            text-align: center;
+            margin: 20px;
+        }
+        #form_main input,button{
+            margin:5px;
+            padding: 10px 0px;
+        }
+        input{
+            display: block;
+            text-align: center;
+            outline: none;
+            border: transparent;
+        }
+        button{
+            outline: none;
+            border: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <form action="" method="post" id="form_main">
+        {% csrf_token %}
+        <h2>Login</h2>
+        <input type="text" name="num1" placeholder="Enter your name"/>
+        <input type="password" name="num2" placeholder="Enter your password"/>
+        <button style="color:white;background-color:red;font-size: 20px">Submit</button>
+        {% for i in messages%}
+        <h4>{{i}}</h4>
+        {%endfor%}
+    </form>
+    </div>
+</body>
+</html>
